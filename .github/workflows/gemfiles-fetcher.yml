@@ -28,4 +28,4 @@ jobs:
         git config user.name ietf-bib-bot
         git config user.email gh-bib-bot@llc.ietf.org
         git add Gemfile Gemfile.lock
-        git diff --quiet && git diff --staged --quiet || (git commit -m 'update Gemfile and Gemfile.lock' && git push -f)
+        git diff --quiet && git diff --staged --quiet || (git commit -m 'update Gemfile and Gemfile.lock' && git push)
