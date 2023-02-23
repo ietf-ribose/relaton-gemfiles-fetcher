@@ -1,11 +1,11 @@
-name: Retrieve Gemfiles
+name: Fetch Gemfiles
 
 on:
   workflow_call:
 
 jobs:
   fetch:
-    name: Retrieve Gemfiles
+    name: Fetch Gemfiles
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
