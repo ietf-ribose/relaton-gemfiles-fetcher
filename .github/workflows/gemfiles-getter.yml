@@ -1,0 +1,31 @@
+name: Retrieve Gemfiles
+
+on:
+  workflow_call:
+
+jobs:
+  fetch:
+    name: Retrieve Gemfiles
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    - name: Remove existing Gemfile and Gemfile.lock, and prepare env
+      run: |
+        rm -rf Gemfile Gemfile.lock
+        mkdir bibxml-service
+    - name: Checkout bibxml-service
+      uses: actions/checkout@v3
+      with:
+        repository: ietf-ribose/bibxml-service
+        ref: gemfilelock
+        path: ./bibxml-service
+    - name: copy Gemfiles
+      run: |
+        mv -t . ./bibxml-service/Gemfile ./bibxml-service/Gemfile.lock
+    - name: Push data
+      run: |
+        git config user.name ietf-bib-bot
+        git config user.email gh-bib-bot@llc.ietf.org
+        git add Gemfile Gemfile.lock
+        git diff --quiet && git diff --staged --quiet || (git commit -m 'update Gemfile and Gemfile.lock' && git push)
