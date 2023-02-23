@@ -10,7 +10,7 @@ Add a new job to the list of jobs (before the one installing/calling the Gemfile
 
 ```
 gemfilesfetcher: 
-    uses: ietf-ribose/relaton-gemfiles-fetcher/.github/workflows/gemfiles-getter.yml@master
+    uses: ietf-ribose/relaton-gemfiles-fetcher/.github/workflows/gemfiles-fetcher.yml@master
 ```
 
 Install gems using the `bundle install` command. To call a command from a gem, use the `bundle exec [GEM] [COMMAND]` command. 
