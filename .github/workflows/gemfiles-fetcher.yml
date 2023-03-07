@@ -17,8 +17,8 @@ jobs:
     - name: Checkout bibxml-service
       uses: actions/checkout@v3
       with:
-        repository: ietf-ribose/bibxml-service
-        ref: gemfilelock
+        repository: ietf-tools/bibxml-service
+        ref: main
         path: ./bibxml-service
     - name: copy Gemfiles
       run: |
